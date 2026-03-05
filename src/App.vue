@@ -1,13 +1,16 @@
 <template>
   <div>
-    <Person></Person>
+    <NoTitle></NoTitle>
+    <Reactive></Reactive>
     <Center1></Center1>
     <Center2></Center2>
   </div>
 </template>
 
 <script setup>
-import Person from './components/Person.vue'
+import NoTitle from './components/NoTitle.vue'
+import Reactive from './components/Reactive.vue';
+
 import Center1 from './components/Center/Center1.vue';
 import Center2 from './components/Center/Center2.vue';
 </script>
