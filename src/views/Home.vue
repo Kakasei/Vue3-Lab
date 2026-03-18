@@ -1,17 +1,20 @@
 <template>
     <div class="main">
-        <div>Home</div>
         <div class="menu">
-            <router-link v-for="route in routes[0].children" :key="route.path" :to="route.path">
-                {{ route.name }}
-            </router-link>
+            <!-- <div class="menu-item" v-for="item in routes[0].children" :key="item.path">
+                <router-link :to="item.path">{{ item.name }}</router-link>
+            </div> -->
+            <menu-item :routes="routes"></menu-item>
         </div>
-        <router-view></router-view>
+        <div class="content">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
 <script setup>
 import { routes } from '@/router/routes';
+import MenuItem from "@/views/MenuItem.vue"
 
 console.log(routes);
 </script>
@@ -19,13 +22,20 @@ console.log(routes);
 <style scoped>
 .main {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
 }
 
 .menu {
-    display: flex;
+    /* display: flex; */
+}
+
+.menu-item {
+    margin-bottom: 10px;
+    background-color: aliceblue;
+
+}
+
+.content {
+    flex: 1;
 }
 </style>
