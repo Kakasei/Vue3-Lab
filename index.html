@@ -1,13 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    <script>
+      let init = () => {
+        const width = document.documentElement.clientWidth;
+        document.documentElement.style.fontSize = width / 10 + "px";
+        console.log(document.documentElement.clientWidth);
+      };
+      init();
+
+      const debounceDecorator = (func, delay) => {
+        let timer = null;
+        function wrapper(...args) {
+          if (timer) {
+            clearTimeout(timer);
+          }
+          timer = setTimeout(() => {
+            func.apply(this, args);
+          }, delay);
+        }
+        return wrapper;
+      };
+      init = debounceDecorator(init, 200);
+
+      window.addEventListener("resize", init);
+    </script>
   </body>
 </html>
