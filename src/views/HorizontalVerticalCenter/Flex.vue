@@ -17,8 +17,12 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 50vh
+    height: 50vh;
+
+    background-color: blanchedalmond;
 }
 
-.child {}
+.child {
+    background-color: aqua;
+}
 </style>
